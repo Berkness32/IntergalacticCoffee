@@ -1,0 +1,28 @@
+<resources>
+    <!-- Login and Create Account Activities -->
+    <string name="app_name">Intergalactic Coffee</string>
+    <string name="loginTitle_textView"><u>Intergalactic Coffee</u></string>
+    <string name="username_editTextText">Username</string>
+    <string name="password_editTextTextPassword">Password</string>
+    <string name="login_button">Login</string>
+
+    <string name="createAccount_button">Create Account</string>
+    <string name="Logout_button">A</string>
+
+    <string name="displayAccounts_textView"> </string>
+    <string name="noUsers">There are no users</string>
+
+    <string name="logout">Logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Planets Activity -->
+    <string name="choosePlanets_textView">Choose Planet: </string>
+    <string name="Planet_spinner"> Tantooine </string>
+
+    <!-- Table Activity -->
+    <string name="tableTitle_textView">Table</string>
+    <!-- List Items Resource -->
+    <string name="TableID_textView">Username:</string>
+    <string name="TableUsernameFromDB_textView"> </string>
+</resources>

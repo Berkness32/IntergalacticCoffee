@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAccountActivity">
+
+    <TextView
+        android:id="@+id/loginTitle_textView"
+        android:layout_width="332dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/loginTitle_textView"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/username_editTextText"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="@string/username_editTextText"
+        android:inputType="text"
+        android:fontFamily="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTitle_textView" />
+
+    <EditText
+        android:id="@+id/password_editTextTextPassword"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="@string/password_editTextTextPassword"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_editTextText" />
+
+    <RadioGroup
+        android:id="@+id/Allegiance_radioGroup"
+        android:layout_width="319dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_editTextTextPassword">
+
+        <RadioButton
+            android:id="@+id/Rebel_RadioButton"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="monospace"
+            android:text="Rebel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.189"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_editTextTextPassword" />
+
+        <RadioButton
+            android:id="@+id/Empire_RadioButton"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:text="Empire"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.189"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Rebel_RadioButton" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/createAccount_button"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="monospace"
+        android:text="@string/createAccount_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Allegiance_radioGroup" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

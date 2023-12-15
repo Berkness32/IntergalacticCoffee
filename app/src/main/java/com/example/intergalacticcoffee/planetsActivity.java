@@ -11,12 +11,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.intergalacticcoffee.db.AppDatabase;
 import com.example.intergalacticcoffee.db.UserDAO;
+import com.example.intergalacticcoffee.resources.BountyHunter;
+import com.example.intergalacticcoffee.resources.Planet;
 import com.example.intergalacticcoffee.resources.User;
+
+import java.util.ArrayList;
 
 public class planetsActivity extends AppCompatActivity {
 
@@ -27,6 +33,7 @@ public class planetsActivity extends AppCompatActivity {
     // Logout behavior ---------------------------------------------
     private int mUserId = -1;
     Button logoutButton;
+    Button cartButton;
     UserDAO userDAO;
     private User mUser;
     private SharedPreferences mPreferences = null;
@@ -39,23 +46,93 @@ public class planetsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planets);
 
-        Spinner spinner = findViewById(R.id.Planet_spinner);
+        Planet planet = new Planet();
+        BountyHunter bountyHunter = new BountyHunter();
+
+        Spinner planetSpinner = findViewById(R.id.Planet_spinner);
+        Spinner bountySpinner = findViewById(R.id.bounty_spinner);
         logoutButton = findViewById(R.id.Logout_button);
+        cartButton = findViewById(R.id.Cart_button);
 
         getDatabase();
 
+        Bundle cartBundle = getIntent().getExtras();
+        ArrayList<Integer> cart = cartBundle.getIntegerArrayList("cart");
+
+        // Planet Spinner ------------------------------------
+        ArrayList<String> planetList = planet.getAllPlanetNames();
+        planetList.add(0, "Select a planet");
+        ArrayAdapter<String> planetAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, planetList);
+        planetAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+        planetSpinner.setAdapter(planetAdapter);
+
+        // Bounty Spinner ------------------------------------
+        ArrayList<String> bountyList = bountyHunter.getNames();
+        bountyList.add(0, "Select a bounty");
+        ArrayAdapter<String> bountyAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, bountyList);
+        bountyAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+        bountySpinner.setAdapter(bountyAdapter);
+
+        // Cart Button ------------------------------------------
+        cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(cartButton(getApplicationContext(), cart));
+            }
+        });
+
         // Spinner ++++++++++++++++++++++++++++++++++++++++++++++
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        // How to Implement Spinner in Android by Codes Easy
+        planetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                
+                if (position > 0) {
+                    String item = parent.getItemAtPosition(position).toString();
+                    //Create the bundle
+                    Bundle planetBundle = new Bundle();
+                    //Add your data to bundle
+                    planetBundle.putStringArrayList("coffeeNames", planet.getAllCoffeeNames());
+                    planetBundle.putString("PlanetName", item); // if this doesn't work, replace item with: planet.getPlanetName(position)
+                    planetBundle.putString("PlanetDescription", planet.getPlanetDescription(position - 1));
+
+                    planetBundle.putIntegerArrayList("cart", cart);
+
+                    Intent intent = new Intent(getApplicationContext(), selectedPlanetActivity.class);
+                    startActivity(intent.putExtras(planetBundle));
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        })
+        });
+
+        bountySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    String bountyItem = parent.getItemAtPosition(position).toString();
+                    Bundle bountyBundle = new Bundle();
+                    bountyBundle.putString("Title", bountyItem);
+                    bountyBundle.putString("Description", bountyHunter.getDescription(position - 1));
+                    bountyBundle.putInt("ID", position - 1);
+
+                    bountyBundle.putIntegerArrayList("cart", cart);
+
+                    Intent bountyIntent = new Intent(getApplicationContext(), BountySelectedActivity.class);
+                    startActivity(bountyIntent.putExtras(bountyBundle));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // Logging in --------------------------------------------
@@ -79,6 +156,18 @@ public class planetsActivity extends AppCompatActivity {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(USER_ID_KEY, userId);
 
+        return intent;
+    }
+
+    public static Intent cartButton(Context context, ArrayList<Integer> cart) {
+        if (cart.get(0) == 2) {
+            cart.remove(0);
+        }
+
+        Intent intent = new Intent(context, CartActivity.class);
+        Bundle cartBundle = new Bundle();
+        cartBundle.putIntegerArrayList("cart", cart);
+        intent.putExtras(cartBundle);
         return intent;
     }
 

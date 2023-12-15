@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * This class is for using a recyclerView.
  * @link https://www.youtube.com/watch?v=__OMnFR-wZU&t=222s
- * @version Alpha
+ * @version Beta
  */
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewHolder> {
     private List<User> userList; // parameter so this is getting passed in.
@@ -34,7 +34,6 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
             // This is just how it populates the display. This part should be fine.
 
             super(view);
-            // This might have to be TableUsernameFromDB_textView
             userTxt = view.findViewById(R.id.TableUsernameFromDB_textView);
         }
     }

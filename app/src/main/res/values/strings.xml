@@ -19,10 +19,34 @@
     <!-- Planets Activity -->
     <string name="choosePlanets_textView">Choose Planet: </string>
     <string name="Planet_spinner"> Tantooine </string>
+    <string name="bounty_textView">Choose Bounty: </string>
 
     <!-- Table Activity -->
     <string name="tableTitle_textView">Table</string>
     <!-- List Items Resource -->
     <string name="TableID_textView">Username:</string>
     <string name="TableUsernameFromDB_textView"> </string>
+
+    <!-- Selected Planet Activity -->
+    <string name="PlanetTitle_textView">Planet</string>
+    <string name="PlanetDescription_textView">Description</string>
+    <string name="CoffeeName1_textView">Coffee</string>
+    <string name="CoffeeName2_textView">Coffee</string>
+    <!-- Selected Planet Resource -->
+    <string name="bountyHunt_button">Bounty Hunt?</string>
+
+    <!-- Selected Bounty Activity-->
+    <string name="BountyTitle_textView">Bounty</string>
+    <string name="BountyDescription_textView">Description</string>
+    <string name="UserResult_textView">10</string>
+    <string name="EnemyRoll_textView">Enemy: </string>
+    <string name="EnemyResult_textView">9</string>
+    <string name="Boolean_textView">Success!</string>
+
+
+    <!-- Shopping Cart Activity-->
+
+    <!-- Shopping Cart Activity-->
+    <string name="CartItem_textView">Coffee Item</string>
+    <string name="CartCost_textView">$5</string>
 </resources>

@@ -17,6 +17,7 @@ import com.example.intergalacticcoffee.db.AppDatabase;
 import com.example.intergalacticcoffee.db.UserDAO;
 import com.example.intergalacticcoffee.resources.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     Button mLoginSubmit;
     Button mCreateAccount;
 
+    private ArrayList<Integer> cart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +50,11 @@ public class MainActivity extends AppCompatActivity {
         mLoginUsername = findViewById(R.id.username_editTextText);
         mLoginPassword = findViewById(R.id.password_editTextTextPassword);
 
+        cart = new ArrayList<>();
+        cart.add(2);
+
         getDatabase();
-        checkForUsers();
+        // checkForUsers(); // I think this is buggy
 
         mCreateAccount = findViewById(R.id.createAccount_button);
         mLoginSubmit = findViewById(R.id.login_button);
@@ -61,14 +67,17 @@ public class MainActivity extends AppCompatActivity {
                 getValuesFromDisplay();
                 if (checkForUserInDB()) {
                     if (!validatePassword()) {
-                        Toast.makeText(getApplicationContext(), "Invalid Password", Toast.LENGTH_SHORT).show();
+                        // Troubleshooting move
+                        Toast.makeText(getApplicationContext(), mPasswordString + ": " + mUser.getPassword(), Toast.LENGTH_SHORT).show();
                     } else {
                         if (mUser.getUsername().equals("berk")) {
                             Intent intent = new Intent(MainActivity.this, tableActivity.class);
                             startActivity(intent);
                         } else {
                             Intent intent = new Intent(MainActivity.this, planetsActivity.class);
-                            startActivity(intent);
+                            Bundle cartBundle = new Bundle();
+                            cartBundle.putIntegerArrayList("cart", cart);
+                            startActivity(intent.putExtras(cartBundle));
                         }
                     }
                 }
@@ -121,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validatePassword() {
-        return mUser.getPassword().equals(mPasswordString);
+        return (mUser.getPassword().equals(mPasswordString));
     }
 
     private boolean checkForUserInDB(){

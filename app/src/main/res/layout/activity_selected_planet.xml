@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".selectedPlanetActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/PlanetTitle_textView"
+        android:layout_width="307dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/PlanetTitle_textView"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/PlanetDescription_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/PlanetDescription_textView"
+        android:layout_width="268dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="monospace"
+        android:gravity="center_horizontal"
+        android:text="@string/PlanetDescription_textView"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PlanetTitle_textView" />
+
+    <TextView
+        android:id="@+id/CoffeeName1_textView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="53dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/CoffeeName1_textView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PlanetDescription_textView" />
+
+    <Button
+        android:id="@+id/addToCart1_button"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="add to cart"
+        android:backgroundTint="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/CoffeeName1_textView"
+        app:layout_constraintTop_toBottomOf="@id/PlanetDescription_textView" />
+
+
+    <TextView
+        android:id="@+id/CoffeeName2_textView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="23dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/CoffeeName2_textView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CoffeeName1_textView" />
+
+    <Button
+        android:id="@+id/addToCart2_button"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:text="add to cart"
+        app:layout_constraintStart_toEndOf="@+id/CoffeeName2_textView"
+        app:layout_constraintTop_toBottomOf="@id/addToCart1_button" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@color/white"
+        android:text="&lt;-"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Cart_button"
+        android:layout_width="112dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/black"
+        android:text="Cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

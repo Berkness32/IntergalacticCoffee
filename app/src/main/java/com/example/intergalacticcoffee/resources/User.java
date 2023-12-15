@@ -4,6 +4,11 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.example.intergalacticcoffee.db.AppDatabase;
+import com.example.intergalacticcoffee.db.UserDAO;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(tableName = AppDatabase.USER_TABLE)
 public class User {
@@ -74,6 +79,14 @@ public class User {
 
     public void setCredits(int credits) {
         mCredits = credits;
+    }
+
+    public void addCredits(int credits) {
+        mCredits += credits;
+    }
+
+    public void useCredits(int credits) {
+        mCredits -= credits;
     }
 
     @Override

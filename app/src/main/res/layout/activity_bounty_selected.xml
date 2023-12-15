@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BountySelectedActivity">
+
+
+    <TextView
+        android:id="@+id/BountyTitle_textView"
+        android:layout_width="307dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/BountyTitle_textView"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/BountyDescription_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/BountyDescription_textView"
+        android:layout_width="268dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="monospace"
+        android:gravity="center_horizontal"
+        android:text="@string/BountyDescription_textView"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BountyTitle_textView" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@color/white"
+        android:text="&lt;-"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/UserRoll_textView"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="48dp"
+        android:text="User: "
+        android:gravity="center_vertical"
+        android:fontFamily="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BountyDescription_textView" />
+
+    <TextView
+        android:id="@+id/UserResult_textView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="65dp"
+        android:gravity="center"
+        android:fontFamily="monospace"
+        android:text="@string/UserResult_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BountyDescription_textView" />
+
+    <TextView
+        android:id="@+id/EnemyRoll_textView"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/EnemyRoll_textView"
+        android:gravity="center_vertical"
+        android:fontFamily="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserRoll_textView" />
+
+    <TextView
+        android:id="@+id/EnemyResult_textView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="65dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/EnemyResult_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserResult_textView" />
+
+    <TextView
+        android:id="@+id/Boolean_textView"
+        android:layout_width="197dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="167dp"
+        android:text="@string/Boolean_textView"
+        android:gravity="center"
+        android:fontFamily="monospace"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EnemyRoll_textView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
